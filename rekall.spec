@@ -120,22 +120,50 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/rekall
 %attr(755,root,root) %{_bindir}/rekallCon
 %attr(755,root,root) %{_bindir}/rekallHelp
-%attr(755,root,root) %{_libdir}/lib*.so.*.*.*
+# libraries
+%attr(755,root,root) %{_libdir}/libel_compile.so.*.*.*
+%attr(755,root,root) %{_libdir}/libel_interp.so.*.*.*
+%attr(755,root,root) %{_libdir}/libkbase.so.*.*.*
+%attr(755,root,root) %{_libdir}/libkbase_app.so.*.*.*
+%attr(755,root,root) %{_libdir}/libkbase_common.so.*.*.*
+%attr(755,root,root) %{_libdir}/libkbase_kde.so.*.*.*
+%attr(755,root,root) %{_libdir}/libkbase_tkwidgets.so.*.*.*
+%attr(755,root,root) %{_libdir}/libkbase_wizard.so.*.*.*
+%attr(755,root,root) %{_libdir}/librekall.so.*.*.*
+# KDE-like modules
 %attr(755,root,root) %{_libdir}/libkbase_componentview.so
+%{_libdir}/libkbase_componentview.la
 %attr(755,root,root) %{_libdir}/libkbase_copierview.so
+%{_libdir}/libkbase_copierview.la
+%attr(755,root,root) %{_libdir}/libkbase_editor.so
+%{_libdir}/libkbase_editor.la
+%attr(755,root,root) %{_libdir}/libkbase_formview.so
+%{_libdir}/libkbase_formview.la
+%attr(755,root,root) %{_libdir}/libkbase_macroview.so
+%{_libdir}/libkbase_macroview.la
+%attr(755,root,root) %{_libdir}/libkbase_plugin_extra.so
+%{_libdir}/libkbase_plugin_extra.la
+%attr(755,root,root) %{_libdir}/libkbase_plugin_kde.so
+%{_libdir}/libkbase_plugin_kde.la
+%attr(755,root,root) %{_libdir}/libkbase_queryview.so
+%{_libdir}/libkbase_queryview.la
+%attr(755,root,root) %{_libdir}/libkbase_reportview.so
+%{_libdir}/libkbase_reportview.la
+%attr(755,root,root) %{_libdir}/libkbase_script_py.so
+%{_libdir}/libkbase_script_py.la
+%attr(755,root,root) %{_libdir}/libkbase_script_pysys.so
+%{_libdir}/libkbase_script_pysys.la
+%attr(755,root,root) %{_libdir}/libkbase_tableview.so
+%{_libdir}/libkbase_tableview.la
+# db drivers (KDE-like modules)
 %attr(755,root,root) %{_libdir}/libkbase_driver_mysql.so
+%{_libdir}/libkbase_driver_mysql.la
 %attr(755,root,root) %{_libdir}/libkbase_driver_pgsql.so
+%{_libdir}/libkbase_driver_pgsql.la
 %attr(755,root,root) %{_libdir}/libkbase_driver_xbase.so.*.*.*
 %attr(755,root,root) %{_libdir}/libkbase_driver_xbase.so
-%attr(755,root,root) %{_libdir}/libkbase_editor.so
-%attr(755,root,root) %{_libdir}/libkbase_formview.so
-%attr(755,root,root) %{_libdir}/libkbase_macroview.so
-%attr(755,root,root) %{_libdir}/libkbase_plugin_extra.so
-%attr(755,root,root) %{_libdir}/libkbase_plugin_kde.so
-%attr(755,root,root) %{_libdir}/libkbase_queryview.so
-%attr(755,root,root) %{_libdir}/libkbase_reportview.so
-%attr(755,root,root) %{_libdir}/libkbase_script_py*.so
-%attr(755,root,root) %{_libdir}/libkbase_tableview.so
+%{_libdir}/libkbase_driver_xbase.la
+# data
 %{_datadir}/apps/rekall
 %{_datadir}/apps/rekallrt
 %{_desktopdir}/rekall.desktop
@@ -151,5 +179,13 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libkbase_tkwidgets.so
 %attr(755,root,root) %{_libdir}/libkbase_wizard.so
 %attr(755,root,root) %{_libdir}/librekall.so
-%{_libdir}/lib*.la
+%{_libdir}/libel_compile.la
+%{_libdir}/libel_interp.la
+%{_libdir}/libkbase.la
+%{_libdir}/libkbase_app.la
+%{_libdir}/libkbase_common.la
+%{_libdir}/libkbase_kde.la
+%{_libdir}/libkbase_tkwidgets.la
+%{_libdir}/libkbase_wizard.la
+%{_libdir}/librekall.la
 %{_includedir}/rekall
