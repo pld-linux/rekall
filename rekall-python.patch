@@ -1,0 +1,13 @@
+--- rekall-2.2.3/configure.in.in.orig	2004-12-15 22:21:40.000000000 +0100
++++ rekall-2.2.3/configure.in.in	2005-02-14 14:21:39.000000000 +0100
+@@ -81,6 +81,10 @@
+ 			     USESYSPY=1
+ 			     ;;
+ 
++			2.4) SYSPYVER="2.4"
++			     USESYSPY=1
++			     ;;
++
+ 			*)   AC_MSG_ERROR([Unrecognised python version: $pyver])
+ 			     ;;
+ 		esac
