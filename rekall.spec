@@ -93,7 +93,11 @@ Pliki nag³ówkowe bibliotek Rekalla.
 %build
 %{__make} -f admin/Makefile.common cvs
 %configure \
-	--with-qt-libraries=%{_libdir}
+	--with-mysql-libraries=%{_libdir} \
+	--with-pgsql-libraries=%{_libdir} \
+	--with-qt-libraries=%{_libdir} \
+	--with-xbase-libraries=%{_libdir} \
+	--with-xbsql-libraries=%{_libdir}
 %{__make}
 
 %install
