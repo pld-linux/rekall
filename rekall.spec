@@ -18,6 +18,7 @@ BuildRequires:	python
 BuildRequires:	python-devel
 BuildRequires:	rpmbuild(macros) >= 1.129
 BuildRequires:	xbsql-devel
+Requires:	%{name}-common = %{version}-%{release}
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -74,11 +75,70 @@ skryptów do bardziej ogólnego u¿ytku. Oczywi¶cie mo¿liwy jest pe³ny
 dostêp do wszystkich modu³ów dostêpnych dla Pythona. Dodatkowo Rekall
 ma zintegrowany debugger Pythona z pod¶wietlaniem sk³adni.
 
+%package common
+Summary:	Common files for full and runtime version of Rekall
+Summary(pl):	Pliki wspólne dla wersji pe³nej i uruchomieniowej Rekalla
+Group:		Libraries
+
+%description common
+Common files for full and runtime version of Rekall.
+
+%description common -l pl
+Pliki wspólne dla wersji pe³nej i uruchomieniowej Rekalla.
+
+%package runtime
+Summary:	Runtime version of Rekall
+Summary(pl)::	Wersja uruchomieniowa Rekalla
+Group:		Applications/Databases/Interfaces
+Requires:	%{name}-common = %{version}-%{release}
+
+%description runtime
+Runtime version of Rekall.
+
+%description runtime -l pl
+Wersja uruchomieniowa Rekalla.
+
+%package driver-mysql
+Summary:	MySQL database driver for Rekall
+Summary(pl):	Sterownik baz danych MySQL dla Rekalla
+Group:		Libraries
+Requires:	%{name}-common = %{version}-%{release}
+
+%description driver-mysql
+MySQL database driver for Rekall.
+
+%description driver-mysql -l pl
+Sterownik baz danych MySQL dla Rekalla.
+
+%package driver-pgsql
+Summary:	PostgreSQL database driver for Rekall
+Summary(pl):	Sterownik baz danych PostgreSQL dla Rekalla
+Group:		Libraries
+Requires:	%{name}-common = %{version}-%{release}
+
+%description driver-pgsql
+PostgreSQL database driver for Rekall.
+
+%description driver-pgsql -l pl
+Sterownik baz danych PostgreSQL dla Rekalla.
+
+%package driver-xbase
+Summary:	XBase/XBSQL database driver for Rekall
+Summary(pl):	Sterownik baz danych XBase/XBSQL dla Rekalla
+Group:		Libraries
+Requires:	%{name}-common = %{version}-%{release}
+
+%description driver-xbase
+XBase/XBSQL database driver for Rekall.
+
+%description driver-xbase -l pl
+Sterownik baz danych XBase/XBSQL dla Rekalla.
+
 %package devel
 Summary:	Header files for Rekall libraries
 Summary(pl):	Pliki nag³ówkowe bibliotek Rekalla
 Group:		Development/Libraries
-Requires:	%{name} = %{version}-%{release}
+Requires:	%{name}-common = %{version}-%{release}
 
 %description devel
 Header files for Rekall libraries.
@@ -93,6 +153,7 @@ Pliki nag³ówkowe bibliotek Rekalla.
 %build
 %{__make} -f admin/Makefile.common cvs
 %configure \
+	--enable-runtime \
 	--with-mysql-libraries=%{_libdir} \
 	--with-pgsql-libraries=%{_libdir} \
 	--with-qt-libraries=%{_libdir} \
@@ -108,7 +169,7 @@ rm -rf $RPM_BUILD_ROOT
 	kde_htmldir=%{_kdedocdir}
 
 install -d $RPM_BUILD_ROOT%{_desktopdir}
-mv -f $RPM_BUILD_ROOT%{_datadir}/rekall.desktop $RPM_BUILD_ROOT%{_desktopdir}
+mv -f $RPM_BUILD_ROOT%{_datadir}/rekall{,rt}.desktop $RPM_BUILD_ROOT%{_desktopdir}
 
 %find_lang %{name} --with-kde
 
@@ -118,20 +179,28 @@ rm -rf $RPM_BUILD_ROOT
 %post	-p /sbin/ldconfig
 %postun	-p /sbin/ldconfig
 
-%files -f %{name}.lang
+%post	common -p /sbin/ldconfig
+%postun	common -p /sbin/ldconfig
+
+%post	runtime -p /sbin/ldconfig
+%postun	runtime -p /sbin/ldconfig
+
+%post	driver-mysql -p /sbin/ldconfig
+%postun	driver-mysql -p /sbin/ldconfig
+
+%post	driver-pgsql -p /sbin/ldconfig
+%postun	driver-pgsql -p /sbin/ldconfig
+
+%post	driver-xbase -p /sbin/ldconfig
+%postun	driver-xbase -p /sbin/ldconfig
+
+%files
 %defattr(644,root,root,755)
 %doc AUTHORS README.FIRST Release.Notes doc/HOWTO
 %attr(755,root,root) %{_bindir}/rekall
-%attr(755,root,root) %{_bindir}/rekallCon
-%attr(755,root,root) %{_bindir}/rekallHelp
 # libraries
-%attr(755,root,root) %{_libdir}/libel_compile.so.*.*.*
-%attr(755,root,root) %{_libdir}/libel_interp.so.*.*.*
 %attr(755,root,root) %{_libdir}/libkbase.so.*.*.*
 %attr(755,root,root) %{_libdir}/libkbase_app.so.*.*.*
-%attr(755,root,root) %{_libdir}/libkbase_common.so.*.*.*
-%attr(755,root,root) %{_libdir}/libkbase_kde.so.*.*.*
-%attr(755,root,root) %{_libdir}/libkbase_tkwidgets.so.*.*.*
 %attr(755,root,root) %{_libdir}/libkbase_wizard.so.*.*.*
 %attr(755,root,root) %{_libdir}/librekall.so.*.*.*
 # KDE-like modules
@@ -159,18 +228,97 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libkbase_script_pysys.la
 %attr(755,root,root) %{_libdir}/libkbase_tableview.so
 %{_libdir}/libkbase_tableview.la
-# db drivers (KDE-like modules)
+# data
+%{_datadir}/apps/rekall/services/kdeparts.lst
+%{_datadir}/apps/rekall/services/rekall_component.desktop
+%{_datadir}/apps/rekall/services/rekall_copier.desktop
+%{_datadir}/apps/rekall/services/rekall_editor.desktop
+%{_datadir}/apps/rekall/services/rekall_form.desktop
+%{_datadir}/apps/rekall/services/rekall_macro.desktop
+%{_datadir}/apps/rekall/services/rekall_plugin_extra.desktop
+%{_datadir}/apps/rekall/services/rekall_plugin_kde.desktop
+%{_datadir}/apps/rekall/services/rekall_query.desktop
+%{_datadir}/apps/rekall/services/rekall_report.desktop
+%{_datadir}/apps/rekall/services/rekall_script_py.desktop
+%{_datadir}/apps/rekall/services/rekall_table.desktop
+%{_datadir}/apps/rekall/stock
+%{_datadir}/apps/rekall/wizards
+%{_desktopdir}/rekall.desktop
+
+%files common -f %{name}.lang
+%defattr(644,root,root,755)
+# libraries
+%attr(755,root,root) %{_libdir}/libkbase_common.so.*.*.*
+%attr(755,root,root) %{_libdir}/libel_compile.so.*.*.*
+%attr(755,root,root) %{_libdir}/libel_interp.so.*.*.*
+%attr(755,root,root) %{_libdir}/libkbase_kde.so.*.*.*
+%attr(755,root,root) %{_libdir}/libkbase_tkwidgets.so.*.*.*
+# data
+%dir %{_datadir}/apps/rekall
+%{_datadir}/apps/rekall/LICENSE
+%{_datadir}/apps/rekall/dict
+%{_datadir}/apps/rekall/help
+%{_datadir}/apps/rekall/highlight
+%{_datadir}/apps/rekall/icons
+%{_datadir}/apps/rekall/keymap
+%{_datadir}/apps/rekall/pics
+%{_datadir}/apps/rekall/rekall.png
+%{_datadir}/apps/rekall/rekallui.*
+%{_datadir}/apps/rekall/script
+%dir %{_datadir}/apps/rekall/services
+%{_datadir}/apps/rekall/services/rekall_dummy.desktop
+
+%files runtime
+%defattr(644,root,root,755)
+%attr(755,root,root) %{_bindir}/rekallrt
+# libraries
+%attr(755,root,root) %{_libdir}/libkbasert.so.*.*.*
+%attr(755,root,root) %{_libdir}/libkbasert_app.so.*.*.*
+%attr(755,root,root) %{_libdir}/librekallrt.so.*.*.*
+# modules
+%attr(755,root,root) %{_libdir}/libkbasert_formview.so
+%{_libdir}/libkbasert_formview.la
+%attr(755,root,root) %{_libdir}/libkbasert_plugin_extra.so
+%{_libdir}/libkbasert_plugin_extra.la
+%attr(755,root,root) %{_libdir}/libkbasert_queryview.so
+%{_libdir}/libkbasert_queryview.la
+%attr(755,root,root) %{_libdir}/libkbasert_reportview.so
+%{_libdir}/libkbasert_reportview.la
+%attr(755,root,root) %{_libdir}/libkbasert_script_py.so
+%{_libdir}/libkbasert_script_py.la
+%attr(755,root,root) %{_libdir}/libkbasert_script_pysys.so
+%{_libdir}/libkbasert_script_pysys.la
+%attr(755,root,root) %{_libdir}/libkbasert_tableview.so
+%{_libdir}/libkbasert_tableview.la
+# data
+%{_datadir}/apps/rekall/services/rekallrt_copier.desktop
+%{_datadir}/apps/rekall/services/rekallrt_form.desktop
+%{_datadir}/apps/rekall/services/rekallrt_plugin_extra.desktop
+%{_datadir}/apps/rekall/services/rekallrt_query.desktop
+%{_datadir}/apps/rekall/services/rekallrt_report.desktop
+%{_datadir}/apps/rekall/services/rekallrt_script_py.desktop
+%{_datadir}/apps/rekall/services/rekallrt_table.desktop
+%{_datadir}/apps/rekallrt
+%{_desktopdir}/rekallrt.desktop
+
+%files driver-mysql
+%defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libkbase_driver_mysql.so
 %{_libdir}/libkbase_driver_mysql.la
+%{_datadir}/apps/rekall/services/rekall_driver_mysql.desktop
+
+%files driver-pgsql
+%defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libkbase_driver_pgsql.so
 %{_libdir}/libkbase_driver_pgsql.la
+%{_datadir}/apps/rekall/services/rekall_driver_pgsql.desktop
+
+%files driver-xbase
+%defattr(644,root,root,755)
 %attr(755,root,root) %{_libdir}/libkbase_driver_xbase.so.*.*.*
 %attr(755,root,root) %{_libdir}/libkbase_driver_xbase.so
 %{_libdir}/libkbase_driver_xbase.la
-# data
-%{_datadir}/apps/rekall
-%{_datadir}/apps/rekallrt
-%{_desktopdir}/rekall.desktop
+%{_datadir}/apps/rekall/services/rekall_driver_xbase.desktop
 
 %files devel
 %defattr(644,root,root,755)
@@ -182,7 +330,10 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_libdir}/libkbase_kde.so
 %attr(755,root,root) %{_libdir}/libkbase_tkwidgets.so
 %attr(755,root,root) %{_libdir}/libkbase_wizard.so
+%attr(755,root,root) %{_libdir}/libkbasert.so
+%attr(755,root,root) %{_libdir}/libkbasert_app.so
 %attr(755,root,root) %{_libdir}/librekall.so
+%attr(755,root,root) %{_libdir}/librekallrt.so
 %{_libdir}/libel_compile.la
 %{_libdir}/libel_interp.la
 %{_libdir}/libkbase.la
@@ -191,5 +342,8 @@ rm -rf $RPM_BUILD_ROOT
 %{_libdir}/libkbase_kde.la
 %{_libdir}/libkbase_tkwidgets.la
 %{_libdir}/libkbase_wizard.la
+%{_libdir}/libkbasert.la
+%{_libdir}/libkbasert_app.la
 %{_libdir}/librekall.la
+%{_libdir}/librekallrt.la
 %{_includedir}/rekall
