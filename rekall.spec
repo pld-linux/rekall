@@ -2,12 +2,13 @@ Summary:	Rekall - database front-end
 Summary(pl):	Rekall - frontend do baz danych
 Name:		rekall
 Version:	2.2.3
-Release:	1
+Release:	2
 License:	GPL v2
 Group:		Applications/Databases/Interfaces
 Source0:	http://www.rekallrevealed.org/packages/%{name}-%{version}-2.tar.gz
 # Source0-md5:	0c27445eb9d58877067d60c94ef0dca9
 Patch0:		%{name}-python.patch
+Patch1:		%{name}-desktop.patch
 URL:		http://www.rekallrevealed.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -88,7 +89,7 @@ Pliki wspólne dla wersji pe³nej i uruchomieniowej Rekalla.
 
 %package runtime
 Summary:	Runtime version of Rekall
-Summary(pl)::	Wersja uruchomieniowa Rekalla
+Summary(pl):	Wersja uruchomieniowa Rekalla
 Group:		Applications/Databases/Interfaces
 Requires:	%{name}-common = %{version}-%{release}
 
@@ -149,6 +150,7 @@ Pliki nag³ówkowe bibliotek Rekalla.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__make} -f admin/Makefile.common cvs
