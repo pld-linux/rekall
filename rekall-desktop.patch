@@ -1,0 +1,32 @@
+--- rekall-2.2.3/kbase_rt/rekall.desktop~	2005-05-18 08:40:23.000000000 +0200
++++ rekall-2.2.3/kbase_rt/rekall.desktop	2005-05-18 08:42:48.000000000 +0200
+@@ -4,8 +4,10 @@
+ Exec=rekall
+ Icon=rekall.png
+ DocPath=rekall/index.html
+-Comment=
+-Comment[de]=
+-Terminal=0
++Comment=Database frontend
++Comment[pl]=Interfejs dostępu do baz danych
++Terminal=false
++Encoding=UTF-8
++Categories=Qt;KDE;Office;Database;
+ Name=Rekall
+ Name[de]=Rekall
+--- rekall-2.2.3/kbase_rt/rekallrt.desktop~	2005-05-18 08:41:40.000000000 +0200
++++ rekall-2.2.3/kbase_rt/rekallrt.desktop	2005-05-18 08:43:27.000000000 +0200
+@@ -4,8 +4,10 @@
+ Exec=rekallrt
+ Icon=rekall.png
+ DocPath=rekall/index.html
+-Comment=
+-Comment[de]=
+-Terminal=0
++Comment=Database frontend - runtime version
++Comment[pl]=Interfejs dostępu do baz danych - wersja uruchomieniowa
++Terminal=false
++Encoding=UTF-8
++Categories=Qt;KDE;Office;Database;
+ Name=Rekall
+ Name[de]=Rekall
