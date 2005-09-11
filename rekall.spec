@@ -172,6 +172,7 @@ rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_desktopdir}
 mv -f $RPM_BUILD_ROOT%{_datadir}/rekall{,rt}.desktop $RPM_BUILD_ROOT%{_desktopdir}
+install -D pics/icons/hicolor/48x48/apps/rekall.png $RPM_BUILD_ROOT%{_pixmapsdir}/rekall.png
 
 %find_lang %{name} --with-kde
 
@@ -269,6 +270,7 @@ rm -rf $RPM_BUILD_ROOT
 %{_datadir}/apps/rekall/script
 %dir %{_datadir}/apps/rekall/services
 %{_datadir}/apps/rekall/services/rekall_dummy.desktop
+%{_pixmapsdir}/*
 
 %files runtime
 %defattr(644,root,root,755)

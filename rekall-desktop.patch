@@ -1,6 +1,6 @@
---- rekall-2.2.3/kbase/rekall.desktop~	2005-05-18 08:40:23.000000000 +0200
-+++ rekall-2.2.3/kbase/rekall.desktop	2005-05-18 08:42:48.000000000 +0200
-@@ -4,8 +4,10 @@
+--- rekall-2.2.3/kbase/rekall.desktop	2004-12-15 22:21:40.000000000 +0100
++++ /usr/share/applications/rekall.desktop	2005-09-10 19:24:48.057245352 +0200
+@@ -4,8 +4,11 @@
  Exec=rekall
  Icon=rekall.png
  DocPath=rekall/index.html
@@ -13,20 +13,25 @@
 +Encoding=UTF-8
 +Categories=Qt;KDE;Office;Database;
  Name=Rekall
- Name[de]=Rekall
---- rekall-2.2.3/kbase/rekallrt.desktop~	2005-05-18 08:41:40.000000000 +0200
-+++ rekall-2.2.3/kbase/rekallrt.desktop	2005-05-18 08:43:27.000000000 +0200
-@@ -4,8 +4,10 @@
+-Name[de]=Rekall
++
++# vi:encoding=utf-8
+--- rekall-2.2.3/kbase/rekallrt.desktop	2004-12-15 22:21:40.000000000 +0100
++++ /usr/share/applications/rekallrt.desktop	2005-09-10 19:25:55.882934280 +0200
+@@ -4,8 +4,11 @@
  Exec=rekallrt
  Icon=rekall.png
  DocPath=rekall/index.html
 -Comment=
 -Comment[de]=
 -Terminal=0
+-Name=Rekall
+-Name[de]=Rekall
 +Comment=Database frontend - runtime version
 +Comment[pl]=Interfejs dostępu do baz danych - wersja uruchomieniowa
 +Terminal=false
 +Encoding=UTF-8
 +Categories=Qt;KDE;Office;Database;
- Name=Rekall
- Name[de]=Rekall
++Name=Rekall RT
++
++# vi:encoding=utf-8
