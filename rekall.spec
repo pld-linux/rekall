@@ -2,7 +2,7 @@ Summary:	Rekall - database front-end
 Summary(pl):	Rekall - frontend do baz danych
 Name:		rekall
 Version:	2.2.3
-Release:	5
+Release:	6
 License:	GPL v2
 Group:		Applications/Databases/Interfaces
 Source0:	http://www.rekallrevealed.org/packages/%{name}-%{version}-2.tar.gz
