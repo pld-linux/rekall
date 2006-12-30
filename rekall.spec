@@ -9,6 +9,7 @@ Source0:	http://www.rekallrevealed.org/packages/%{name}-%{version}-2.tar.gz
 # Source0-md5:	0c27445eb9d58877067d60c94ef0dca9
 Patch0:		%{name}-python.patch
 Patch1:		%{name}-desktop.patch
+Patch2:		%{name}-ac-am-fix.patch
 URL:		http://www.rekallrevealed.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
@@ -151,6 +152,7 @@ Pliki nag³ówkowe bibliotek Rekalla.
 %setup -q
 %patch0 -p1
 %patch1 -p1
+%patch2 -p1
 
 %build
 %{__make} -f admin/Makefile.common cvs
