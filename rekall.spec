@@ -1,5 +1,5 @@
 Summary:	Rekall - database front-end
-Summary(pl):	Rekall - frontend do baz danych
+Summary(pl.UTF-8):   Rekall - frontend do baz danych
 Name:		rekall
 Version:	2.2.6
 Release:	1
@@ -51,103 +51,103 @@ modules for more general use. And, of course, you have full access to
 all the modules that are available for Python. Plus, Rekall has an
 integrated Python debugger with syntax highlighting.
 
-%description -l pl
+%description -l pl.UTF-8
 Rekall to frontend do baz danych nieco podobny do programu
-MicroSoft(R) Access(TM). Rekall nie jest jednak baz± danych i nie
-zawiera bazy danych. Znaczy to, ¿e dane s± przechowywane gdzie¶
-indziej na serwerze SQL, a Rekall jest zasadniczo tylko narzêdziem do
-wyci±gania, wy¶wietlania i uaktualniania tych danych (oczywi¶cie robi
-du¿o wiêcej, jak na przyk³ad formularze, raporty, skrypty...). Jest
-niezale¿ny od bazy danych i nie ma preferowanej bazy w tym sensie, w
-jakim Access(TM) u¿ywa silnika Jet (choæ wersja dla Windows mo¿e
-u¿ywaæ silnika baz danych Jet poprzez sterownik ODBC).
+MicroSoft(R) Access(TM). Rekall nie jest jednak bazÄ… danych i nie
+zawiera bazy danych. Znaczy to, Å¼e dane sÄ… przechowywane gdzieÅ›
+indziej na serwerze SQL, a Rekall jest zasadniczo tylko narzÄ™dziem do
+wyciÄ…gania, wyÅ›wietlania i uaktualniania tych danych (oczywiÅ›cie robi
+duÅ¼o wiÄ™cej, jak na przykÅ‚ad formularze, raporty, skrypty...). Jest
+niezaleÅ¼ny od bazy danych i nie ma preferowanej bazy w tym sensie, w
+jakim Access(TM) uÅ¼ywa silnika Jet (choÄ‡ wersja dla Windows moÅ¼e
+uÅ¼ywaÄ‡ silnika baz danych Jet poprzez sterownik ODBC).
 
-Rekall potrafi du¿o rzeczy, jakich mo¿na by oczekiwaæ od frontendu do
-baz danych. Pozwala projektowaæ i u¿ywaæ formularze i raporty,
-konstruowaæ zapytania, importowaæ i eksportowaæ dane (w³a¶ciwie
-pozwala kopiowaæ dane, import to po prostu kopia z pliku do tabeli, a
-eksport - kopia z tabeli do pliku). Mo¿na tak¿e tworzyæ komponenty
-wielokrotnego u¿ycia do wykorzystania w formularzach i raportach w
-celu zaoszczêdzenia czasu tworzenia aplikacji.
+Rekall potrafi duÅ¼o rzeczy, jakich moÅ¼na by oczekiwaÄ‡ od frontendu do
+baz danych. Pozwala projektowaÄ‡ i uÅ¼ywaÄ‡ formularze i raporty,
+konstruowaÄ‡ zapytania, importowaÄ‡ i eksportowaÄ‡ dane (wÅ‚aÅ›ciwie
+pozwala kopiowaÄ‡ dane, import to po prostu kopia z pliku do tabeli, a
+eksport - kopia z tabeli do pliku). MoÅ¼na takÅ¼e tworzyÄ‡ komponenty
+wielokrotnego uÅ¼ycia do wykorzystania w formularzach i raportach w
+celu zaoszczÄ™dzenia czasu tworzenia aplikacji.
 
-Rekall mo¿e byæ oskryptowany przy u¿yciu jêzyka Python. Mo¿na ustawiæ,
-¿eby skrypt by³ wykonywany przy wyst±pieniu ró¿nych zdarzeñ (na
-przyk³ad kiedy u¿ytkownik zmienia zawarto¶æ kontrolki). Skrypty mog±
-byæ wi±zane bezpo¶rednio ze zdarzeniem albo przechowywane w modu³ach
-skryptów do bardziej ogólnego u¿ytku. Oczywi¶cie mo¿liwy jest pe³ny
-dostêp do wszystkich modu³ów dostêpnych dla Pythona. Dodatkowo Rekall
-ma zintegrowany debugger Pythona z pod¶wietlaniem sk³adni.
+Rekall moÅ¼e byÄ‡ oskryptowany przy uÅ¼yciu jÄ™zyka Python. MoÅ¼na ustawiÄ‡,
+Å¼eby skrypt byÅ‚ wykonywany przy wystÄ…pieniu rÃ³Å¼nych zdarzeÅ„ (na
+przykÅ‚ad kiedy uÅ¼ytkownik zmienia zawartoÅ›Ä‡ kontrolki). Skrypty mogÄ…
+byÄ‡ wiÄ…zane bezpoÅ›rednio ze zdarzeniem albo przechowywane w moduÅ‚ach
+skryptÃ³w do bardziej ogÃ³lnego uÅ¼ytku. OczywiÅ›cie moÅ¼liwy jest peÅ‚ny
+dostÄ™p do wszystkich moduÅ‚Ã³w dostÄ™pnych dla Pythona. Dodatkowo Rekall
+ma zintegrowany debugger Pythona z podÅ›wietlaniem skÅ‚adni.
 
 %package common
 Summary:	Common files for full and runtime version of Rekall
-Summary(pl):	Pliki wspólne dla wersji pe³nej i uruchomieniowej Rekalla
+Summary(pl.UTF-8):   Pliki wspÃ³lne dla wersji peÅ‚nej i uruchomieniowej Rekalla
 Group:		Libraries
 
 %description common
 Common files for full and runtime version of Rekall.
 
-%description common -l pl
-Pliki wspólne dla wersji pe³nej i uruchomieniowej Rekalla.
+%description common -l pl.UTF-8
+Pliki wspÃ³lne dla wersji peÅ‚nej i uruchomieniowej Rekalla.
 
 %package runtime
 Summary:	Runtime version of Rekall
-Summary(pl):	Wersja uruchomieniowa Rekalla
+Summary(pl.UTF-8):   Wersja uruchomieniowa Rekalla
 Group:		Applications/Databases/Interfaces
 Requires:	%{name}-common = %{version}-%{release}
 
 %description runtime
 Runtime version of Rekall.
 
-%description runtime -l pl
+%description runtime -l pl.UTF-8
 Wersja uruchomieniowa Rekalla.
 
 %package driver-mysql
 Summary:	MySQL database driver for Rekall
-Summary(pl):	Sterownik baz danych MySQL dla Rekalla
+Summary(pl.UTF-8):   Sterownik baz danych MySQL dla Rekalla
 Group:		Libraries
 Requires:	%{name}-common = %{version}-%{release}
 
 %description driver-mysql
 MySQL database driver for Rekall.
 
-%description driver-mysql -l pl
+%description driver-mysql -l pl.UTF-8
 Sterownik baz danych MySQL dla Rekalla.
 
 %package driver-pgsql
 Summary:	PostgreSQL database driver for Rekall
-Summary(pl):	Sterownik baz danych PostgreSQL dla Rekalla
+Summary(pl.UTF-8):   Sterownik baz danych PostgreSQL dla Rekalla
 Group:		Libraries
 Requires:	%{name}-common = %{version}-%{release}
 
 %description driver-pgsql
 PostgreSQL database driver for Rekall.
 
-%description driver-pgsql -l pl
+%description driver-pgsql -l pl.UTF-8
 Sterownik baz danych PostgreSQL dla Rekalla.
 
 %package driver-xbase
 Summary:	XBase/XBSQL database driver for Rekall
-Summary(pl):	Sterownik baz danych XBase/XBSQL dla Rekalla
+Summary(pl.UTF-8):   Sterownik baz danych XBase/XBSQL dla Rekalla
 Group:		Libraries
 Requires:	%{name}-common = %{version}-%{release}
 
 %description driver-xbase
 XBase/XBSQL database driver for Rekall.
 
-%description driver-xbase -l pl
+%description driver-xbase -l pl.UTF-8
 Sterownik baz danych XBase/XBSQL dla Rekalla.
 
 %package devel
 Summary:	Header files for Rekall libraries
-Summary(pl):	Pliki nag³ówkowe bibliotek Rekalla
+Summary(pl.UTF-8):   Pliki nagÅ‚Ã³wkowe bibliotek Rekalla
 Group:		Development/Libraries
 Requires:	%{name}-common = %{version}-%{release}
 
 %description devel
 Header files for Rekall libraries.
 
-%description devel -l pl
-Pliki nag³ówkowe bibliotek Rekalla.
+%description devel -l pl.UTF-8
+Pliki nagÅ‚Ã³wkowe bibliotek Rekalla.
 
 %prep
 %setup -q
