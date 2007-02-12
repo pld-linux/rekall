@@ -1,5 +1,5 @@
 Summary:	Rekall - database front-end
-Summary(pl.UTF-8):   Rekall - frontend do baz danych
+Summary(pl.UTF-8):	Rekall - frontend do baz danych
 Name:		rekall
 Version:	2.2.6
 Release:	1
@@ -80,7 +80,7 @@ ma zintegrowany debugger Pythona z podświetlaniem składni.
 
 %package common
 Summary:	Common files for full and runtime version of Rekall
-Summary(pl.UTF-8):   Pliki wspólne dla wersji pełnej i uruchomieniowej Rekalla
+Summary(pl.UTF-8):	Pliki wspólne dla wersji pełnej i uruchomieniowej Rekalla
 Group:		Libraries
 
 %description common
@@ -91,7 +91,7 @@ Pliki wspólne dla wersji pełnej i uruchomieniowej Rekalla.
 
 %package runtime
 Summary:	Runtime version of Rekall
-Summary(pl.UTF-8):   Wersja uruchomieniowa Rekalla
+Summary(pl.UTF-8):	Wersja uruchomieniowa Rekalla
 Group:		Applications/Databases/Interfaces
 Requires:	%{name}-common = %{version}-%{release}
 
@@ -103,7 +103,7 @@ Wersja uruchomieniowa Rekalla.
 
 %package driver-mysql
 Summary:	MySQL database driver for Rekall
-Summary(pl.UTF-8):   Sterownik baz danych MySQL dla Rekalla
+Summary(pl.UTF-8):	Sterownik baz danych MySQL dla Rekalla
 Group:		Libraries
 Requires:	%{name}-common = %{version}-%{release}
 
@@ -115,7 +115,7 @@ Sterownik baz danych MySQL dla Rekalla.
 
 %package driver-pgsql
 Summary:	PostgreSQL database driver for Rekall
-Summary(pl.UTF-8):   Sterownik baz danych PostgreSQL dla Rekalla
+Summary(pl.UTF-8):	Sterownik baz danych PostgreSQL dla Rekalla
 Group:		Libraries
 Requires:	%{name}-common = %{version}-%{release}
 
@@ -127,7 +127,7 @@ Sterownik baz danych PostgreSQL dla Rekalla.
 
 %package driver-xbase
 Summary:	XBase/XBSQL database driver for Rekall
-Summary(pl.UTF-8):   Sterownik baz danych XBase/XBSQL dla Rekalla
+Summary(pl.UTF-8):	Sterownik baz danych XBase/XBSQL dla Rekalla
 Group:		Libraries
 Requires:	%{name}-common = %{version}-%{release}
 
@@ -139,7 +139,7 @@ Sterownik baz danych XBase/XBSQL dla Rekalla.
 
 %package devel
 Summary:	Header files for Rekall libraries
-Summary(pl.UTF-8):   Pliki nagłówkowe bibliotek Rekalla
+Summary(pl.UTF-8):	Pliki nagłówkowe bibliotek Rekalla
 Group:		Development/Libraries
 Requires:	%{name}-common = %{version}-%{release}
 
